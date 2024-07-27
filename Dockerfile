@@ -1,6 +1,5 @@
-FROM alpine:latest
+FROM debian:latest
 
-RUN apk --no-cache add bash
 ADD smartdns.sh /usr/bin/smartdns.sh
 RUN chmod +x /usr/bin/smartdns.sh && \
     chown root:root /usr/bin/smartdns.sh && \
