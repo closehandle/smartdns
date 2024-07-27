@@ -3,6 +3,8 @@ FROM debian:latest
 ADD smartdns.sh /usr/bin/smartdns.sh
 RUN chmod +x /usr/bin/smartdns.sh && \
     chown root:root /usr/bin/smartdns.sh && \
+    apt update && \
+    apt install curl -y && \
     smartdns.sh
 
 FROM alpine:latest
