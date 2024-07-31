@@ -14,7 +14,8 @@ RUN apk --no-cache add ca-certificates
 ADD https://github.com/pymumu/smartdns/releases/download/Release46/smartdns-x86_64 /usr/bin/smartdns
 ADD smartdns.conf /etc/smartdns/smartdns.conf
 RUN chmod +x /usr/bin/smartdns && \
-    chown root:root /usr/bin/smartdns
+    chown root:root /usr/bin/smartdns && \
+    mkdir /var/lib/smartdns
 
 COPY --from=0 /chinadns.list /etc/smartdns/chinadns.list
 COPY --from=0 /otherdns.list /etc/smartdns/otherdns.list
