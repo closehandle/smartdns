@@ -14,6 +14,8 @@ COPY --from=0 /otherdns.list /etc/smartdns/otherdns.list
 
 ADD https://github.com/pymumu/smartdns/releases/download/Release46/smartdns-x86_64 /usr/bin/smartdns
 ADD smartdns.conf /etc/smartdns/smartdns.conf
+ADD chinadns.conf /etc/smartdns/chinadns.conf
+ADD otherdns.conf /etc/smartdns/otherdns.conf
 RUN apt update && \
     apt install ca-certificates -y && \
     apt clean && \
