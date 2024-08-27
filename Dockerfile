@@ -2,12 +2,12 @@ FROM debian:latest
 
 ADD smartdns.sh /usr/bin/smartdns.sh
 RUN apt update && \
-    apt install curl openssl -y && \
+    apt install curl -y && \
     apt clean && \
     chmod +x /usr/bin/smartdns.sh && \
     chown root:root /usr/bin/smartdns.sh && \
     smartdns.sh && \
-    openssl req -x509 -newkey ec:<(openssl ecparam -name secp384r1) -sha512 -days 3650 -nodes \
+    openssl req -x509 -newkey rsa -sha512 -days 3650 -nodes \
         -keyout default.key -out default.crt -subj '/CN=microsoft.com' \
         -addext 'subjectAltName=DNS:microsoft.com,DNS:*.microsoft.com'
 
