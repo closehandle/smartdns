@@ -21,7 +21,10 @@ RUN apt update && \
     apt clean && \
     chmod +x /usr/bin/smartdns && \
     chown root:root /usr/bin/smartdns && \
-    mkdir /var/lib/smartdns
+    mkdir /var/lib/smartdns && \
+    openssl req -x509 -newkey ec:<(openssl ecparam -name secp384r1) -sha512 -days 3650 -nodes \
+        -keyout /etc/smartdns/default.key -out /etc/smartdns/default.crt -subj '/CN=microsoft.com' \
+        -addext 'subjectAltName=DNS:microsoft.com,DNS:*.microsoft.com' && \
 
 ENTRYPOINT ["/usr/bin/smartdns"]
 CMD ["-f", "/etc/smartdns/smartdns.conf", "-p", "-"]
