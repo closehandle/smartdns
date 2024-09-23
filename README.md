@@ -5,10 +5,8 @@ docker container run \
     --env TZ=Asia/Shanghai \
     --name smartdns \
     --volume smartdns:/var/lib/smartdns \
-    --publish 53:53/tcp \
-    --publish 53:53/udp \
+    --network host \
     --restart always \
-    --hostname smartdns \
     closehandle/smartdns:latest
 ```
 
@@ -26,9 +24,7 @@ docker container run \
     --volume /etc/smartdns/smartdns.conf:/etc/smartdns/smartdns.conf \
     --volume /etc/smartdns/chinadns.conf:/etc/smartdns/chinadns.conf \
     --volume /etc/smartdns/otherdns.conf:/etc/smartdns/otherdns.conf \
-    --publish 53:53/tcp \
-    --publish 53:53/udp \
+    --network host \
     --restart always \
-    --hostname smartdns \
     closehandle/smartdns:latest
 ```
