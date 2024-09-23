@@ -12,6 +12,7 @@ RUN apt update && \
         -addext 'subjectAltName=DNS:microsoft.com,DNS:*.microsoft.com'
 
 FROM debian:latest
+COPY --from=0 /ads.list /etc/smartdns/ads.list
 COPY --from=0 /default.crt /etc/smartdns/default.crt
 COPY --from=0 /default.key /etc/smartdns/default.key
 COPY --from=0 /chinadns.list /etc/smartdns/chinadns.list
