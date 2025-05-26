@@ -19,16 +19,18 @@ CHINADNS=(
     'server [2402:4e00:0000:0000:0000:0000:0000:0000]:53 -b -e -g chinadns'
 )
 OTHERDNS=(
-    'server-h3 h3://1.0.0.1:443/dns-query -g otherdns'
-    'server-h3 h3://1.1.1.1:443/dns-query -g otherdns'
-    'server-h3 h3://8.8.4.4:443/dns-query -g otherdns'
-    'server-h3 h3://8.8.8.8:443/dns-query -g otherdns'
     'server-tls 1.0.0.1:853 -g otherdns'
     'server-tls 1.1.1.1:853 -g otherdns'
     'server-tls 8.8.4.4:853 -g otherdns'
     'server-tls 8.8.8.8:853 -g otherdns'
     'server-quic 94.140.14.140:853 -g otherdns'
     'server-quic 94.140.14.141:853 -g otherdns'
+    'server-tls [2001:4860:4860:0000:0000:0000:0000:8844]:853 -g otherdns'
+    'server-tls [2001:4860:4860:0000:0000:0000:0000:8888]:853 -g otherdns'
+    'server-tls [2606:4700:4700:0000:0000:0000:0000:1001]:853 -g otherdns'
+    'server-tls [2606:4700:4700:0000:0000:0000:0000:1111]:853 -g otherdns'
+    'server-quic [2a10:50c0:0000:0000:0000:0000:0001:00ff]:853 -g otherdns'
+    'server-quic [2a10:50c0:0000:0000:0000:0000:0002:00ff]:853 -g otherdns'
 )
 ADDITIONAL=()
 
