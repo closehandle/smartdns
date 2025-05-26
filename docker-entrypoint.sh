@@ -54,19 +54,25 @@ UPDATE_LIST 'OTHERDNS'
 UPDATE_LIST 'ADDITIONAL'
 
 rm -fr /run/smartdns && mkdir /run/smartdns
+
+touch /run/smartdns/bind.conf
 for i in "${BIND[@]}"; do
     echo "bind ${i}" >> /run/smartdns/bind.conf
     echo "bind-tcp ${i}" >> /run/smartdns/bind.conf
 done
+touch /run/smartdns/bootdns.conf
 for i in "${BOOTDNS[@]}"; do
     echo "${i}" >> /run/smartdns/bootdns.conf
 done
+touch /run/smartdns/chinadns.conf
 for i in "${CHINADNS[@]}"; do
     echo "${i}" >> /run/smartdns/chinadns.conf
 done
+touch /run/smartdns/otherdns.conf
 for i in "${OTHERDNS[@]}"; do
     echo "${i}" >> /run/smartdns/otherdns.conf
 done
+touch /run/smartdns/additional.conf
 for i in "${ADDITIONAL[@]}"; do
     echo "${i}" >> /run/smartdns/additional.conf
 done
