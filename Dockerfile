@@ -31,6 +31,6 @@ RUN apt update && \
 RUN apt install ca-certificates -y
 
 FROM scratch
-COPY --from=0 / /
+COPY --from=1 / /
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD []
