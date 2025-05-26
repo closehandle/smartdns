@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache openssl-dev base-devel curl wget git
+RUN apk add --no-cache openssl-dev build-base curl wget git
 
 ADD smartdns-rules.sh smartdns-rules.sh
 RUN bash smartdns-rules.sh && \
