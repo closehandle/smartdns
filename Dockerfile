@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --no-cache openssl-dev build-base curl wget git
+RUN apk add --no-cache openssl-dev build-base bash curl wget git
 
 ADD smartdns-rules.sh smartdns-rules.sh
 RUN bash smartdns-rules.sh && \
@@ -22,7 +22,7 @@ COPY --from=0 /usr/bin/smartdns /usr/bin/smartdns
 ADD smartdns.conf /etc/smartdns/smartdns.conf
 ADD docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
 
-RUN apk add --no-cache ca-certificates
+RUN apk add --no-cache ca-certificates bash
 
 FROM scratch
 COPY --from=1 / /
