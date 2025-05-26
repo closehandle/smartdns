@@ -22,7 +22,7 @@ COPY --from=0 /etc/smartdns/chinadns.list /etc/smartdns/chinadns.list
 COPY --from=0 /etc/smartdns/otherdns.list /etc/smartdns/otherdns.list
 COPY --from=0 /usr/bin/smartdns /usr/bin/smartdns
 
-ADD smartdns.conf /usr/bin/smartdns.conf
+ADD smartdns.conf /etc/smartdns/smartdns.conf
 ADD docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
 
 RUN apt update && \
