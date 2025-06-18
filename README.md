@@ -3,8 +3,11 @@
 services:
   smartdns:
     image: closehandle/smartdns:latest
+    cap_add:
+      - NET_BIND_SERVICE
+      - NET_RAW
     environment:
-      TZ: Asia/Shanghai
+      - TZ=Asia/Shanghai
     network_mode: host
     container_name: smartdns
 ```
