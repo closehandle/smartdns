@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 chinadns=$(curl --retry-all-errors \
+    https://raw.githubusercontent.com/loyalsoldier/v2ray-rules-dat/release/direct-list.txt \
     https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/apple.china.conf \
     https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/google.china.conf \
     https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf)
