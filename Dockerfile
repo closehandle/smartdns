@@ -9,7 +9,7 @@ RUN bash smartdns-rules.sh && \
     mv -f otherdns.list /etc/smartdns/otherdns.list && \
     rm -f smartdns-rules.sh
 
-RUN git clone https://github.com/pymumu/smartdns --depth 1 --single-branch smartdns && cd smartdns && \
+RUN git clone https://github.com/pymumu/smartdns -b Release47.1 --depth 1 --single-branch smartdns && cd smartdns && \
     make -j$(nproc) STATIC=1 && \
     cd src && mv -f smartdns /usr/bin/smartdns && cd .. && \
     cd .. && rm -fr smartdns
