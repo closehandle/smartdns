@@ -5,6 +5,7 @@ RUN apk add --no-cache openssl-libs-static linux-headers openssl-dev build-base 
 ADD smartdns-rules.sh smartdns-rules.sh
 RUN bash smartdns-rules.sh && \
     mkdir /etc/smartdns && \
+    mv -f ads.list /etc/smartdns/ads.list && \
     mv -f chinadns.list /etc/smartdns/chinadns.list && \
     mv -f otherdns.list /etc/smartdns/otherdns.list && \
     rm -f smartdns-rules.sh
@@ -15,6 +16,7 @@ RUN git clone https://github.com/pymumu/smartdns -b Release47.1 --depth 1 --sing
     cd .. && rm -fr smartdns
 
 FROM alpine:latest
+COPY --from=0 /etc/smartdns/ads.list /etc/smartdns/ads.list
 COPY --from=0 /etc/smartdns/chinadns.list /etc/smartdns/chinadns.list
 COPY --from=0 /etc/smartdns/otherdns.list /etc/smartdns/otherdns.list
 COPY --from=0 /usr/bin/smartdns /usr/bin/smartdns
