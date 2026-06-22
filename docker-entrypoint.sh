@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 for ((i=0; ; i++)); do
     name="DNS${i}"
-    if [[ -z "${!name}"]]; then
+    if [[ -z "${!name}" ]]; then
         break
     fi
 
