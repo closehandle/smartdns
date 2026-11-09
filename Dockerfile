@@ -11,7 +11,7 @@ RUN bash smartdns-rules.sh && \
     rm -f smartdns-rules.sh
 
 RUN git clone https://github.com/pymumu/smartdns --single-branch smartdns && cd smartdns && \
-    git checkout 65832a19c248f8a0f8714304d819e1da408b3835 && \
+    git checkout 320061d07c3d559a2fa734b2b4bc2891c86f4422 && \
     make -j$(nproc) STATIC=1 && \
     cd src && mv -f smartdns /usr/bin/smartdns && cd .. && \
     cd .. && rm -fr smartdns
